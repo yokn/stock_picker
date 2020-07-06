@@ -18,11 +18,10 @@ def stock_picker(stock_array)
     next if number == stock_array.last
 
     next unless number < lowest_number
+    next if index > highest_number_index
 
-    unless index > highest_number_index
-      lowest_number = number
-      lowest_number_index = index
-    end
+    lowest_number = number
+    lowest_number_index = index
   end
   puts "buy on day #{lowest_number_index} for $#{lowest_number}"
   puts "sell on day #{highest_number_index} for $#{highest_number}"
@@ -31,3 +30,5 @@ end
 
 # Print the result
 stock_picker([17, 15, 6, 9, 3, 8, 6, 1, 10])
+
+stock_picker([17, 3, 6, 9, 15, 8, 6, 1, 10])
